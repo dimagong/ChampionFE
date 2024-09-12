@@ -1,11 +1,7 @@
-import React from 'react';
-import {Navigation} from '@src/interfaces';
-
-// import {Navigation} from '~/interfaces';
-
-import {View, TouchableOpacity} from 'react-native';
-
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from 'react'
+import {Navigation} from '@src/interfaces'
+import {View, TouchableOpacity} from 'react-native'
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export const HeaderRightIcon = ({navigation}: {navigation: Navigation}) => (
     <TouchableOpacity onPress={() => navigation.navigate('Team')}>
@@ -18,4 +14,4 @@ export const HeaderRightIcon = ({navigation}: {navigation: Navigation}) => (
             />
         </View>
     </TouchableOpacity>
-);
+)

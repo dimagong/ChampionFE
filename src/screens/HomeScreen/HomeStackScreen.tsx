@@ -1,18 +1,16 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HeaderLeftIcon, HeaderRightIcon, LogoTitle} from '@src/ui/components';
-// import {Navigation} from '~/interfaces';
-// import {HomeScreen} from '.';
-import {StatsScreen} from '../StatsScreen';
-import {ArticlesScreen} from '../ArticlesScreen';
-import {TeamScreen} from '../TeamScreen';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Navigation} from '@src/interfaces';
-import {HomeScreen} from './HomeScreen';
+import React from 'react'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {HeaderLeftIcon, HeaderRightIcon, LogoTitle} from '@ui/components'
+import {StatsScreen} from '../StatsScreen'
+import {ArticlesScreen} from '../ArticlesScreen'
+import {TeamScreen} from '../TeamScreen'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {Navigation} from '@interfaces/index'
+import {HomeScreen} from './HomeScreen'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
-const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator()
 
 export const HomeStackScreen = () => {
     return (
@@ -73,5 +71,5 @@ export const HomeStackScreen = () => {
                 />
             </HomeStack.Navigator>
         </>
-    );
-};
+    )
+}

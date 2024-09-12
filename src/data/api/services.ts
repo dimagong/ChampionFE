@@ -2,7 +2,6 @@ import axios from 'axios';
 import {TEAM_NAME, TEAM_ID, COMPETITION_ID, COMPETITIONS, PART_ID, PARENT_RELATION, BASE_URL, BASE_URL_FIREBASE} from '@env';
 
 
-
 export const clientSportNet = axios.create({
     baseURL: BASE_URL,
     headers: {

@@ -1,10 +1,10 @@
-import React from 'react';
-import {Text, StyleSheet, StatusBar} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Navigation} from '~/interfaces';
+import React from 'react'
+import {Text, StyleSheet, StatusBar} from 'react-native'
+import {SafeAreaView} from 'react-native-safe-area-context'
+import {Navigation} from '@interfaces/index'
 
 interface UserScreenProps {
-    navigation: Navigation;
+    navigation: Navigation
 }
 
 export const UserScreen = ({navigation}: UserScreenProps) => {
@@ -13,8 +13,8 @@ export const UserScreen = ({navigation}: UserScreenProps) => {
             <StatusBar backgroundColor="#040507" />
             <Text style={{fontSize: 40, color: 'white'}}>User screen</Text>
         </SafeAreaView>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#040507',
         alignItems: 'center',
     },
-});
+})

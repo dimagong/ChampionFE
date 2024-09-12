@@ -1,13 +1,13 @@
-import React, {useRef, useState} from 'react';
-import {View, StyleSheet, Text, Button, Dimensions} from 'react-native';
+import React, {useRef, useState} from 'react'
+import {View, StyleSheet, Text, Button, Dimensions} from 'react-native'
 // import Video from 'react-native-video';
 // import FullscreenVideo from 'react-native-video';
 // import VideoRef from 'react-native-video';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface IVideoPlayer {
     // source: Readonly<Omit<ReactVideoSourceProperties, 'uri'>>;
-    source: any;
+    source: any
 }
 //https://clouddevs.com/react-native/building-video-player-apps/
 //https://github.com/TheWidlarzGroup/react-native-video/issues/1509
@@ -15,22 +15,22 @@ interface IVideoPlayer {
 //https://github.com/TheWidlarzGroup/react-native-video/issues/1509
 export const VideoPlayer = () => {
     // const videoRef = useRef<VideoRef>(null);
-    const background = require('./../images/football-field.webp');
+    const background = require('./../images/football-field.webp')
 
-    const [showVideo, setShowVideo] = useState(false);
-    const [isPause, setPauseStatus] = useState(true); // Added new code
+    const [showVideo, setShowVideo] = useState(false)
+    const [isPause, setPauseStatus] = useState(true) // Added new code
 
     const onProgress = () => {
         // iOS - always gets logged
         // Android - if video starts in 'paused' state, this does not get logged [BUG]
-        console.log('debug onProgress');
-    };
+        console.log('debug onProgress')
+    }
 
     const onSeek = () => {
         // iOS - never gets logged
         // Android - gets logged [BUG]
-        console.log('debug onSeek');
-    };
+        console.log('debug onSeek')
+    }
 
     return (
         // <View style={styles.container}>
@@ -86,8 +86,8 @@ export const VideoPlayer = () => {
                 resizeMode={'cover'}
             /> */}
         </View>
-    );
-};
+    )
+}
 
 // export const VideoPlayer = ({source}: IVideoPlayer) => {
 //     return (
@@ -166,4 +166,4 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').width * (9 / 16),
         backgroundColor: 'black',
     },
-});
+})

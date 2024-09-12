@@ -1,32 +1,32 @@
-import {TouchableOpacity, View, StyleSheet} from 'react-native';
-import Icons from 'react-native-vector-icons/MaterialIcons';
-import {Routes} from '@src/core/Routes';
+import {TouchableOpacity, View, StyleSheet} from 'react-native'
+import Icons from 'react-native-vector-icons/MaterialIcons'
+import {Routes} from '@core/Routes'
 
-type RotesTypes = `${Routes}`;
+type RotesTypes = `${Routes}`
 
 const setIcon = (label: RotesTypes) => {
-    let iconName;
+    let iconName
 
     switch (label) {
         case Routes.HOME:
-            iconName = 'home';
-            break;
+            iconName = 'home'
+            break
         case Routes.SHOP:
-            iconName = 'shopping-bag';
-            break;
+            iconName = 'shopping-bag'
+            break
         case Routes.USER:
-            iconName = 'person';
-            break;
+            iconName = 'person'
+            break
         case Routes.VIDEO:
-            iconName = 'ondemand-video';
-            break;
+            iconName = 'ondemand-video'
+            break
         default:
-            iconName = 'home';
-            break;
+            iconName = 'home'
+            break
     }
 
-    return iconName;
-};
+    return iconName
+}
 
 export const TabBar = ({state, descriptors, navigation}: any) => {
     // console.log('state bar', state);
@@ -34,35 +34,35 @@ export const TabBar = ({state, descriptors, navigation}: any) => {
     return (
         <View style={styles.tabContainer}>
             {state.routes.map((route: any, index: any) => {
-                const {options} = descriptors[route.key];
+                const {options} = descriptors[route.key]
                 const label =
                     options.tabBarLabel !== undefined
                         ? options.tabBarLabel
                         : options.title !== undefined
                         ? options.title
-                        : route.name;
+                        : route.name
 
-                const isFocused = state.index === index;
+                const isFocused = state.index === index
 
                 const onPressNavigation = () => {
                     const event = navigation.emit({
                         type: 'tabPress',
                         target: route.key,
-                    });
+                    })
 
                     if (!isFocused && !event.defaultPrevented) {
-                        navigation.navigate(route.name);
+                        navigation.navigate(route.name)
                     }
-                };
+                }
 
                 const onLongPress = () => {
                     navigation.emit({
                         type: 'tabLongPress',
                         target: route.key,
-                    });
-                };
+                    })
+                }
 
-                const iconName = setIcon(label);
+                const iconName = setIcon(label)
 
                 return (
                     <TouchableOpacity
@@ -79,11 +79,11 @@ export const TabBar = ({state, descriptors, navigation}: any) => {
                             style={{color: isFocused ? '#fafafa' : '#757575'}}
                         />
                     </TouchableOpacity>
-                );
+                )
             })}
         </View>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     tabContainer: {
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         backgroundColor: '#000000',
     },
-});
+})

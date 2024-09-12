@@ -1,5 +1,5 @@
-import {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {FC} from 'react'
+import {StyleSheet, View} from 'react-native'
 
 import {
     Avatar,
@@ -8,12 +8,12 @@ import {
     IconButton,
     Text,
     MD3Theme,
-} from 'react-native-paper';
-import {IArticle} from '~/interfaces/interfaces';
-import {useTheme} from 'react-native-paper';
+} from 'react-native-paper'
+import {IArticle} from '@interfaces/interfaces'
+import {useTheme} from 'react-native-paper'
 
 interface ICardComponent extends IArticle {
-    onClickHandler?: () => void;
+    onClickHandler?: () => void
 }
 
 export const CardComponentTitle: FC<Partial<ICardComponent>> = ({
@@ -42,13 +42,13 @@ export const CardComponentTitle: FC<Partial<ICardComponent>> = ({
                 )}
             />
         </Card>
-    );
-};
+    )
+}
 
 export const CardComponent = (props: ICardComponent) => {
-    const {title, subTitle, url, content, onClickHandler} = props;
+    const {title, subTitle, url, content, onClickHandler} = props
 
-    const theme: MD3Theme = useTheme();
+    const theme: MD3Theme = useTheme()
     return (
         <Card onPress={onClickHandler} style={styles.card}>
             <Card.Cover source={{uri: url}} />
@@ -67,12 +67,12 @@ export const CardComponent = (props: ICardComponent) => {
                             </Text>
                             <Text>{el?.answer ?? ''}</Text>
                         </View>
-                    );
+                    )
                 })}
             </Card.Content>
         </Card>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     card: {
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
         paddingBottom: 2,
         fontWeight: '700',
     },
-});
+})

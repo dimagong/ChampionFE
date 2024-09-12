@@ -1,5 +1,5 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import {
     SafeAreaView,
@@ -7,35 +7,33 @@ import {
     StatusBar,
     useColorScheme,
     View,
-} from 'react-native';
+} from 'react-native'
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-// import TableComponent from 'ui/components/TableComponent';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '@src/store/store';
-import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit';
-import {ITeamsStatistics, ITeamStatistics} from '@src/interfaces';
-import {Section} from '@src/ui/components/Section';
-import TableComponent from '../../ui/components/TableComponent';
-// import TableComponent from '~/ui/components/TableComponent';
+import {Colors} from 'react-native/Libraries/NewAppScreen'
+import {useDispatch, useSelector} from 'react-redux'
+import {RootState} from '@store/store'
+import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
+import {ITeamsStatistics, ITeamStatistics} from '@interfaces/index'
+import {Section} from '@ui/components/Section'
+import TableComponent from '@ui/components/TableComponent'
 
 type IProps = {
-    children: JSX.Element;
-    title: string;
-};
+    children: JSX.Element
+    title: string
+}
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 export const StatsScreen = ({navigation}: {navigation: any}) => {
     const statistics = useSelector(
         (state: RootState) => state.statistics.value?.results ?? [],
-    ) as any[];
+    ) as any[]
 
-    const isDarkMode = useColorScheme() === 'dark';
+    const isDarkMode = useColorScheme() === 'dark'
 
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
+    }
 
     const teamsStatistics: ITeamsStatistics = statistics?.map(stat => {
         return {
@@ -46,8 +44,8 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
             won: stat?.stats?.matches.won,
             points: stat?.stats?.points,
             id: stat?.team?._id,
-        } as ITeamStatistics;
-    });
+        } as ITeamStatistics
+    })
 
     return (
         <SafeAreaView style={backgroundStyle}>
@@ -71,5 +69,5 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
                 </View>
             </ScrollView>
         </SafeAreaView>
-    );
-};
+    )
+}

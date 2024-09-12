@@ -1,15 +1,14 @@
-import React from 'react';
-import {HomeStackScreen} from '../HomeScreen';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react'
+import {HomeStackScreen} from '../HomeScreen'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
-import {ShopScreen} from '../ShopScreen';
-// import {TabBar} from 'ui/components';
-import {UserScreen} from '../UserScreen';
-import {Routes} from '@src/core/Routes';
-import {VideoScreen} from '../VideoScreen';
-import {TabBar} from '@src/ui/components/TabBar';
+import {ShopScreen} from '../ShopScreen'
+import {UserScreen} from '../UserScreen'
+import {Routes} from '@core/Routes'
+import {VideoScreen} from '../VideoScreen'
+import {TabBar} from '@ui/components/TabBar'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 export const RootScreen = () => {
     return (
@@ -23,5 +22,5 @@ export const RootScreen = () => {
                 <Tab.Screen name={Routes.USER} component={UserScreen} />
             </Tab.Navigator>
         </>
-    );
-};
+    )
+}

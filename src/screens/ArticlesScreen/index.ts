@@ -1,1 +1,1 @@
-export * from './ArticlesScreen'
+export * from './ArticlesScreen';

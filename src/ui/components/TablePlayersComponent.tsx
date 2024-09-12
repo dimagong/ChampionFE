@@ -1,19 +1,19 @@
-import {DataTable, MD3Theme, Text, useTheme} from 'react-native-paper';
-import {IPlayers, IPlayerStats, ITeamsStatistics} from '~/interfaces';
-import {StyleSheet} from 'react-native';
-import {MD3Colors} from 'react-native-paper/lib/typescript/types';
-import type {theme as Theme} from '../../../App';
+import {DataTable, MD3Theme, Text, useTheme} from 'react-native-paper'
+import {IPlayers, IPlayerStats, ITeamsStatistics} from '@src//interfaces'
+import {StyleSheet} from 'react-native'
+import {MD3Colors} from 'react-native-paper/lib/typescript/types'
+import type {theme as Theme} from '../../../App'
 
 interface ITablePlayersComponent {
-    players: IPlayers[];
+    players: IPlayers[]
 }
 
 const TablePlayersComponent = ({players}: ITablePlayersComponent) => {
-    const theme: typeof Theme = useTheme();
+    const theme: typeof Theme = useTheme()
 
-    const styles = makeStyles(theme.colors);
+    const styles = makeStyles(theme.colors)
 
-    players.sort((a, b) => b.stats.goals - a.stats.goals);
+    players.sort((a, b) => b.stats.goals - a.stats.goals)
 
     return (
         <DataTable
@@ -58,10 +58,10 @@ const TablePlayersComponent = ({players}: ITablePlayersComponent) => {
                 </DataTable.Row>
             ))}
         </DataTable>
-    );
-};
+    )
+}
 
-export default TablePlayersComponent;
+export default TablePlayersComponent
 
 const makeStyles = (colors: typeof Theme.colors) =>
     StyleSheet.create({
@@ -89,4 +89,4 @@ const makeStyles = (colors: typeof Theme.colors) =>
         yellow: {
             color: colors.warning,
         },
-    });
+    })

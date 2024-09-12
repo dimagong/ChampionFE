@@ -1,19 +1,18 @@
-import * as React from 'react';
-
-import {useSelector, useDispatch} from 'react-redux';
+import * as React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 
 import {
     changeResultMatch,
     //setNextMatch,
     //setStatistics,
-} from './../../store/slices';
+} from './../../store/slices'
 
-import {selectNextMatch} from '@src/store/selectors/selectNextMatch';
+import {selectNextMatch} from '@src/store/selectors/selectNextMatch'
 
-import {receiveStatistics} from '@src/data/api/services';
-import {fetchStatistics} from '@src/store/thunks/fetchStatistics';
-import {fetchNextMatches} from '@src/store/thunks/fetchNextMatches';
-import {fetchArticles} from '@src/store/thunks/fetchArticles';
+// import {receiveStatistics} from '@src/data/api/services'
+import {fetchStatistics} from '@src/store/thunks/fetchStatistics'
+import {fetchNextMatches} from '@src/store/thunks/fetchNextMatches'
+import {fetchArticles} from '@src/store/thunks/fetchArticles'
 
 import {
     StatusBar,
@@ -22,29 +21,29 @@ import {
     FlatList,
     View,
     ScrollView,
-} from 'react-native';
+} from 'react-native'
 
-import {Avatar, Button as ButtonPaper} from 'react-native-paper';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {Avatar, Button as ButtonPaper} from 'react-native-paper'
+import {NavigationContainer, useNavigation} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 // import {CardComponent, CardComponentTitle} from 'ui/components/CardComponent';
-import {HeaderComponent} from '@src/ui/components/HeaderComponent';
+import {HeaderComponent} from '@src/ui/components/HeaderComponent'
 
-import type {RootState} from '../../store/store';
-import {CardComponentTitle, Carousel} from '../../ui/components';
+import type {RootState} from '@store/store'
+import {CardComponentTitle, Carousel} from '@ui/components'
 
-import {useTheme} from 'react-native-paper';
-import {theme} from './../../../App';
+import {useTheme} from 'react-native-paper'
+import {theme} from './../../../App'
 // import {selectFinishedMatches} from '~/store/selectors';
-import {IArticle, IMatch} from '@src/interfaces';
-import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit';
-import {selectFinishedMatches} from '@src/store/selectors';
+import {IArticle, IMatch} from '@src/interfaces'
+import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
+import {selectFinishedMatches} from '@store/selectors'
 // import {selectFinishedMatches} from '~/store/selectors';
 // import {CardComponentTitle} from '~/ui/components/';
 
-const LeftContent = (props: any) => <Avatar.Icon {...props} icon="folder" />;
+const LeftContent = (props: any) => <Avatar.Icon {...props} icon="folder" />
 
 interface IArticlesProps extends IArticle {
     // item: any;
@@ -52,8 +51,8 @@ interface IArticlesProps extends IArticle {
 }
 
 const Articles = (article: IArticlesProps) => {
-    const navigation = useNavigation<any>();
-    const onClickArticles = () => navigation.navigate('Articles', {...article});
+    const navigation = useNavigation<any>()
+    const onClickArticles = () => navigation.navigate('Articles', {...article})
     return (
         <CardComponentTitle
             onClickHandler={onClickArticles}
@@ -61,36 +60,36 @@ const Articles = (article: IArticlesProps) => {
             subTitle={article.subTitle}
             url={article.url}
         />
-    );
-};
+    )
+}
 
 //TODO pass data for display articles on the Atricles screen
 // TODO remove any type
 
 export const HomeScreen = () => {
-    const navigation = useNavigation<any>();
-    const {deviceHeight, deviceWidth, colors} = useTheme<typeof theme>();
+    const navigation = useNavigation<any>()
+    const {deviceHeight, deviceWidth, colors} = useTheme<typeof theme>()
     //const navigation = useNavigation();
-    const count = useSelector((state: RootState) => state?.resultMatch?.value);
-    const state = useSelector((state: RootState) => state);
-    const lastMatches: IMatch[] = useSelector(selectFinishedMatches);
+    const count = useSelector((state: RootState) => state?.resultMatch?.value)
+    const state = useSelector((state: RootState) => state)
+    const lastMatches: IMatch[] = useSelector(selectFinishedMatches)
     const articles: IArticle[] = useSelector(
         (state: RootState) => state?.articles?.value,
-    );
-    const dispatch = useDispatch<ActionCreatorWithPayload<any> | any>();
+    )
+    const dispatch = useDispatch<ActionCreatorWithPayload<any> | any>()
 
     React.useEffect(() => {
-        dispatch(fetchNextMatches());
-        dispatch(fetchArticles());
-        dispatch(fetchStatistics());
+        dispatch(fetchNextMatches())
+        dispatch(fetchArticles())
+        dispatch(fetchStatistics())
         // const data = receiveStatistics();
         // data.then(data => dispatch(setStatistics([...data])));
-    }, []);
+    }, [])
 
     const redirectStatsPage = (screen = 'Stats', params = {}) =>
-        navigation.navigate(screen, params);
-    const nextMatch = useSelector(selectNextMatch);
-    console.log('teams', nextMatch);
+        navigation.navigate(screen, params)
+    const nextMatch = useSelector(selectNextMatch)
+    console.log('teams', nextMatch)
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="#000000" />
@@ -110,8 +109,8 @@ export const HomeScreen = () => {
                 </View>
             </ScrollView>
         </SafeAreaView>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -128,4 +127,4 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
     },
-});
+})

@@ -1,13 +1,12 @@
 //import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
-import {Text, StyleSheet, StatusBar, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-// import {Navigation} from 'src/interfaces';
-import {VideoPlayer} from '@src/ui/components/VideoPlayer';
-import {Navigation} from '@src/interfaces';
+import React from 'react'
+import {Text, StyleSheet, StatusBar, ScrollView} from 'react-native'
+import {SafeAreaView} from 'react-native-safe-area-context'
+import {VideoPlayer} from '@ui/components/VideoPlayer'
+import {Navigation} from '@src/interfaces'
 
 interface ShopScreenProps {
-    navigation: Navigation;
+    navigation: Navigation
 }
 
 export const VideoScreen = ({navigation}: ShopScreenProps) => {
@@ -33,8 +32,8 @@ export const VideoScreen = ({navigation}: ShopScreenProps) => {
                 /> */}
             </ScrollView>
         </SafeAreaView>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#040507',
         alignItems: 'center',
     },
-});
+})

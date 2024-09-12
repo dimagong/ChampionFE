@@ -1,7 +1,7 @@
-import React from 'react';
-import type {ReactNode} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react'
+import type {ReactNode} from 'react'
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import {
     Image,
@@ -12,7 +12,7 @@ import {
     Text,
     useColorScheme,
     View,
-} from 'react-native';
+} from 'react-native'
 
 import {
     Colors,
@@ -20,32 +20,32 @@ import {
     //Header,
     LearnMoreLinks,
     ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import {IPlayers, IPlayerStats, Navigation} from '~/interfaces';
-import {useSelector} from 'react-redux';
-import {RootState} from '@src/store/store';
-import {selectPlayers} from '@src/store/selectors/selectPlayers';
-import {useTheme} from 'react-native-paper';
-import {Section} from '@src/ui/components/Section';
-import TablePlayersComponent from '@src/ui/components/TablePlayersComponent';
+} from 'react-native/Libraries/NewAppScreen'
+import {IPlayers, IPlayerStats, Navigation} from '@interfaces/index'
+import {useSelector} from 'react-redux'
+import {RootState} from '@src/store/store'
+import {selectPlayers} from '@src/store/selectors/selectPlayers'
+import {useTheme} from 'react-native-paper'
+import {Section} from '@ui/components/Section'
+import TablePlayersComponent from '@ui/components/TablePlayersComponent'
 //src/store/selectors/selectPlayers
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 interface TeamScreenProps {
-    navigation: Navigation;
+    navigation: Navigation
 }
 
 export const TeamScreen = ({navigation}: TeamScreenProps) => {
-    const players: IPlayers[] = useSelector(selectPlayers);
+    const players: IPlayers[] = useSelector(selectPlayers)
 
-    const theme = useTheme();
-    console.log('Players====', players);
+    const theme = useTheme()
+    console.log('Players====', players)
 
-    const isDarkMode = useColorScheme() === 'dark';
+    const isDarkMode = useColorScheme() === 'dark'
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
+    }
 
     return (
         <SafeAreaView style={backgroundStyle}>
@@ -69,8 +69,8 @@ export const TeamScreen = ({navigation}: TeamScreenProps) => {
                 </View>
             </ScrollView>
         </SafeAreaView>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#040507',
         alignItems: 'center',
     },
-});
+})

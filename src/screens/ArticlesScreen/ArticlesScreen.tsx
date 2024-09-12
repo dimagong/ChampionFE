@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 
 import {
     View,
@@ -6,23 +6,17 @@ import {
     SafeAreaView,
     StyleSheet,
     ScrollView,
-} from 'react-native';
-import {CardComponent} from '@src/ui/components';
-// import {CardComponent} from '~/ui/components';
-// import {CardComponent} from '~/ui/components/CardComponent';
-//import {CardComponent} from '~/ui/components';
-// import {CardComponent} from '~/ui/components';
-
-// import {CardComponent} from 'ui/components/CardComponent';
+} from 'react-native'
+import {CardComponent} from '@ui/components'
 
 export const ArticlesScreen = ({
     route,
     navigation,
 }: {
-    route: any;
-    navigation: any;
+    route: any
+    navigation: any
 }) => {
-    const {title, subTitle, content, url, id} = route.params;
+    const {title, subTitle, content, url, id} = route.params
 
     return (
         <SafeAreaView style={styles.container}>
@@ -39,8 +33,8 @@ export const ArticlesScreen = ({
                 </View>
             </ScrollView>
         </SafeAreaView>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -49,4 +43,4 @@ const styles = StyleSheet.create({
     container__view: {
         padding: 20,
     },
-});
+})
