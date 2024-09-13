@@ -7,6 +7,7 @@ import {UserScreen} from '../UserScreen'
 import {Routes} from '@core/Routes'
 import {VideoScreen} from '../VideoScreen'
 import {TabBar} from '@ui/components/TabBar'
+import {VideoStackScreen} from '../VideoScreen/VideoStackScreen'
 
 const Tab = createBottomTabNavigator()
 
@@ -17,7 +18,7 @@ export const RootScreen = () => {
                 screenOptions={{headerShown: false}}
                 tabBar={props => <TabBar {...props} />}>
                 <Tab.Screen name={Routes.HOME} component={HomeStackScreen} />
-                <Tab.Screen name={Routes.VIDEO} component={VideoScreen} />
+                <Tab.Screen name={Routes.VIDEO} component={VideoStackScreen} />
                 {/* <Tab.Screen name={Routes.SHOP} component={ShopScreen} /> */}
                 <Tab.Screen name={Routes.USER} component={UserScreen} />
             </Tab.Navigator>

@@ -7,6 +7,7 @@ import {TeamScreen} from '../TeamScreen'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Navigation} from '@interfaces/index'
 import {HomeScreen} from './HomeScreen'
+import {Routes} from '@src/core/Routes'
 
 const Tab = createBottomTabNavigator()
 
@@ -16,13 +17,13 @@ export const HomeStackScreen = () => {
     return (
         <>
             <HomeStack.Navigator
-                initialRouteName="Home"
+                initialRouteName={Routes.MAIN}
                 screenOptions={{
                     headerTitle: props => <LogoTitle />,
                     headerTitleAlign: 'center',
                 }}>
                 <HomeStack.Screen
-                    name="Home"
+                    name={Routes.MAIN}
                     component={HomeScreen}
                     options={({navigation}: {navigation: Navigation}) => ({
                         headerRight: props => (
@@ -37,7 +38,7 @@ export const HomeStackScreen = () => {
                     })}
                 />
                 <HomeStack.Screen
-                    name="Stats"
+                    name={Routes.STATS}
                     component={StatsScreen}
                     options={{
                         title: 'Stats',
@@ -48,7 +49,7 @@ export const HomeStackScreen = () => {
                     }}
                 />
                 <HomeStack.Screen
-                    name="Team"
+                    name={Routes.TEAM}
                     component={TeamScreen}
                     options={{
                         title: 'Team',
@@ -59,7 +60,7 @@ export const HomeStackScreen = () => {
                     }}
                 />
                 <HomeStack.Screen
-                    name="Articles"
+                    name={Routes.ARTICLES}
                     component={ArticlesScreen}
                     options={{
                         title: 'Articles',

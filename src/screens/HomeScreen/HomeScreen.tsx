@@ -40,6 +40,7 @@ import {theme} from './../../../App'
 import {IArticle, IMatch} from '@src/interfaces'
 import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
 import {selectFinishedMatches} from '@store/selectors'
+import {Routes} from '@src/core/Routes'
 // import {selectFinishedMatches} from '~/store/selectors';
 // import {CardComponentTitle} from '~/ui/components/';
 
@@ -52,7 +53,8 @@ interface IArticlesProps extends IArticle {
 
 const Articles = (article: IArticlesProps) => {
     const navigation = useNavigation<any>()
-    const onClickArticles = () => navigation.navigate('Articles', {...article})
+    const onClickArticles = () =>
+        navigation.navigate(Routes.ARTICLES, {...article})
     return (
         <CardComponentTitle
             onClickHandler={onClickArticles}

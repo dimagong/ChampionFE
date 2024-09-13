@@ -34,6 +34,6 @@ export interface IArticle {
     title: string;
     subTitle?: string;
     url?: any;
-    id: string;
-    content: IArticleContent;
+    id?: string;
+    content?: IArticleContent;
 }

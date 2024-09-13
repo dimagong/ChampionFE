@@ -49,7 +49,7 @@ export const TeamScreen = ({navigation}: TeamScreenProps) => {
 
     return (
         <SafeAreaView style={backgroundStyle}>
-            <StatusBar backgroundColor={theme.colors.onBackground} />
+            {/* <StatusBar backgroundColor={theme.colors.onBackground} /> */}
             {/* <Text style={{fontSize: 40, color: 'red'}}>Players</Text> */}
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
@@ -75,7 +75,7 @@ export const TeamScreen = ({navigation}: TeamScreenProps) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#040507',
+        // backgroundColor: '#040507',
         alignItems: 'center',
     },
 })
