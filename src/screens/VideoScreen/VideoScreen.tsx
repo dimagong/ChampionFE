@@ -1,44 +1,32 @@
-//import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react'
-import {Text, StyleSheet, StatusBar, ScrollView} from 'react-native'
+import {useColorScheme} from 'react-native'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {VideoPlayer} from '@ui/components/VideoPlayer'
+import {useTheme} from 'react-native-paper'
+import {Colors} from 'react-native/Libraries/NewAppScreen'
 import {Navigation} from '@src/interfaces'
 
 interface ShopScreenProps {
-    navigation: Navigation
+    route: any
 }
 
-export const VideoScreen = ({navigation}: ShopScreenProps) => {
+export const VideoScreen = ({route}: ShopScreenProps) => {
+    const theme = useTheme()
+
+    const isDarkMode = useColorScheme() === 'dark'
+    const backgroundStyle = {
+        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    }
+
+    const {videoUrl, imageUrl} = route.params
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <StatusBar backgroundColor="#040507" />
-                <Text style={{fontSize: 40, color: 'white'}}>Best moments</Text>
-                <VideoPlayer
-                // source={{
-                //     uri: 'https://video.sportnet.online/videospace/V2/f/futbalsfz.sk/2024/08/25/4a8a8f5b-3b7e-47c9-80e0-f8e48f0b5048.mp4',
-                // }}
-                />
-                {/* <VideoPlayer
-                // source={{
-                //     uri: 'https://video.sportnet.online/videospace/V2/f/futbalsfz.sk/2024/08/25/4a8a8f5b-3b7e-47c9-80e0-f8e48f0b5048.mp4',
-                // }}
-                /> */}
-                {/* <VideoPlayer
-                // source={{
-                //     uri: 'https://video.sportnet.online/videospace/V2/f/futbalsfz.sk/2024/08/25/4a8a8f5b-3b7e-47c9-80e0-f8e48f0b5048.mp4',
-                // }}
-                /> */}
-            </ScrollView>
+        <SafeAreaView style={backgroundStyle}>
+            <VideoPlayer
+                source={{
+                    uri: videoUrl,
+                }}
+                poster={imageUrl}
+            />
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#040507',
-        alignItems: 'center',
-    },
-})

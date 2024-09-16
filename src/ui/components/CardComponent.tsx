@@ -9,7 +9,7 @@ import {
     Text,
     MD3Theme,
 } from 'react-native-paper'
-import {IArticle} from '@interfaces/interfaces'
+import {IArticle} from '@src/interfaces'
 import {useTheme} from 'react-native-paper'
 
 interface ICardComponent extends IArticle {
