@@ -35,12 +35,13 @@ import type {RootState} from '@store/store'
 import {CardComponentTitle, Carousel} from '@ui/components'
 
 import {useTheme} from 'react-native-paper'
-import {theme} from './../../../App'
+
 // import {selectFinishedMatches} from '~/store/selectors';
 import {IArticle, IMatch} from '@src/interfaces'
 import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
 import {selectFinishedMatches} from '@store/selectors'
 import {Routes} from '@src/core/Routes'
+import {theme} from '@src/ui/theme/theme'
 // import {selectFinishedMatches} from '~/store/selectors';
 // import {CardComponentTitle} from '~/ui/components/';
 

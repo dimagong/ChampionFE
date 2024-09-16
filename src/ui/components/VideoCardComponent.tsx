@@ -3,7 +3,7 @@ import {NavigationProp, useNavigation} from '@react-navigation/native'
 import {CardComponent} from '@ui/components'
 import {Routes} from '@src/core/Routes'
 import {View, Image} from 'react-native'
-import {theme as Theme} from './../../../App'
+import {theme as Theme} from '@src/ui/theme/theme'
 import {useTheme} from 'react-native-paper'
 
 export const VideoCardComponent = ({

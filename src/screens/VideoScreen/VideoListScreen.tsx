@@ -15,7 +15,7 @@ import {useTheme} from 'react-native-paper'
 import {ActionCreatorWithPayload} from '@reduxjs/toolkit'
 import {fetchImages} from '@src/store/thunks/fetchImages'
 import {fetchVideo} from '@src/store/thunks/fetchVideo'
-import {theme as Theme} from './../../../App'
+import {theme as Theme} from '@src/ui/theme/theme'
 import {convertVideoImages} from '@src/utils/videoDataConvertation'
 import {VideoCardComponent} from '@src/ui/components/VideoCardComponent'
 

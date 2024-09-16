@@ -1,6 +1,6 @@
 import {FlatList, Text, View, StyleSheet} from 'react-native'
 import {Avatar, useTheme} from 'react-native-paper'
-import {theme} from './../../../../App'
+import {theme} from '@src/ui/theme/theme'
 import {useNavigation} from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import {IMatch} from '@src/interfaces'
