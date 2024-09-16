@@ -1,19 +1,22 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit'
 
-import {fetchStatistics} from './thunks/fetchStatistics';
-import {fetchNextMatches} from './thunks/fetchNextMatches';
-import {fetchArticles} from './thunks/fetchArticles';
+import {fetchStatistics} from './thunks/fetchStatistics'
+import {fetchNextMatches} from './thunks/fetchNextMatches'
+import {fetchArticles} from './thunks/fetchArticles'
+import {fetchVideo} from './thunks/fetchVideo'
+import {fetchImages} from './thunks/fetchImages'
+import {IVideoImages} from '@src/interfaces/interfacesVideoImages'
 
 //import type {RootState} from '../store/store';
 
 // Define a type for the slice state
 interface IScoreState {
-    value: string;
+    value: string
 }
 
 interface IStatistics {
-    players: any[];
-    results: any[];
+    players: any[]
+    results: any[]
 }
 
 export const resultMatchSlice = createSlice({
@@ -23,10 +26,10 @@ export const resultMatchSlice = createSlice({
     } as IScoreState,
     reducers: {
         changeResultMatch: (state, action) => {
-            state.value = action.payload;
+            state.value = action.payload
         },
     },
-});
+})
 
 export const nextMatchesSlice = createSlice({
     name: 'nextMatches',
@@ -41,15 +44,15 @@ export const nextMatchesSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchNextMatches.pending, (state, action) => {
-                console.log('fetchNextMatches.pending');
+                console.log('fetchNextMatches.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchNextMatches.fulfilled, (state, action) => {
-                const {payload} = action;
-                state.value = payload;
+                const {payload} = action
+                state.value = payload
 
                 //
                 //state.value = payload;
@@ -63,8 +66,8 @@ export const nextMatchesSlice = createSlice({
                 // }
             })
             .addCase(fetchNextMatches.rejected, (state, action) => {
-                console.log('fetchNextMatches.rejected');
-                const {requestId} = action.meta;
+                console.log('fetchNextMatches.rejected')
+                const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
                 //   state.currentRequestId === requestId
@@ -73,9 +76,9 @@ export const nextMatchesSlice = createSlice({
                 //   state.error = action.error
                 //   state.currentRequestId = undefined
                 // }
-            });
+            })
     },
-});
+})
 
 export const statisticsSlice = createSlice({
     name: 'statistics',
@@ -93,15 +96,15 @@ export const statisticsSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchStatistics.pending, (state, action) => {
-                console.log('fetchStatistics.pending');
+                console.log('fetchStatistics.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchStatistics.fulfilled, (state, action) => {
-                const {payload} = action;
-                state.value = payload;
+                const {payload} = action
+                state.value = payload
                 //
                 //;
                 // if (
@@ -114,8 +117,8 @@ export const statisticsSlice = createSlice({
                 // }
             })
             .addCase(fetchStatistics.rejected, (state, action) => {
-                console.log('fetchStatistics.rejected');
-                const {requestId} = action.meta;
+                console.log('fetchStatistics.rejected')
+                const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
                 //   state.currentRequestId === requestId
@@ -124,9 +127,9 @@ export const statisticsSlice = createSlice({
                 //   state.error = action.error
                 //   state.currentRequestId = undefined
                 // }
-            });
+            })
     },
-});
+})
 
 export const articlesSlice = createSlice({
     name: 'articles',
@@ -141,16 +144,16 @@ export const articlesSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchArticles.pending, (state, action) => {
-                console.log('articles.pending');
+                console.log('articles.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchArticles.fulfilled, (state, action) => {
-                console.log('fetchArticles.fulfilled');
-                const {payload} = action;
-                state.value = payload;
+                console.log('fetchArticles.fulfilled')
+                const {payload} = action
+                state.value = payload
                 //
                 //;
                 // if (
@@ -163,8 +166,8 @@ export const articlesSlice = createSlice({
                 // }
             })
             .addCase(fetchArticles.rejected, (state, action) => {
-                console.log('fetchArticles.rejected');
-                const {requestId} = action.meta;
+                console.log('fetchArticles.rejected')
+                const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
                 //   state.currentRequestId === requestId
@@ -173,16 +176,98 @@ export const articlesSlice = createSlice({
                 //   state.error = action.error
                 //   state.currentRequestId = undefined
                 // }
-            });
+            })
     },
-});
+})
+
+export const videoSlice = createSlice({
+    name: 'video',
+    initialState: {
+        value: [] as IVideoImages[],
+    },
+    reducers: {
+        // setStatistics: (state, action) => {
+        //   state.value = action.payload;
+        // },
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchVideo.pending, (state, action) => {
+                console.log('video.pending')
+                // if (state.loading === 'idle') {
+                //   state.loading = 'pending'
+                //   state.currentRequestId = action.meta.requestId
+                // }
+            })
+            .addCase(fetchVideo.fulfilled, (state, action) => {
+                console.log('fetchVideo.fulfilled')
+                const {payload} = action
+                state.value = payload
+                //
+                //;
+                // if (
+                //   state.loading === 'pending' &&
+                //   state.currentRequestId === requestId
+                // ) {
+                //   state.loading = 'idle'
+                //   state.entities.push(action.payload)
+                //   state.currentRequestId = undefined
+                // }
+            })
+            .addCase(fetchVideo.rejected, (state, action) => {
+                console.log('fetchVideo.rejected')
+                const {requestId} = action.meta
+                // if (
+                //   state.loading === 'pending' &&
+                //   state.currentRequestId === requestId
+                // ) {
+                //   state.loading = 'idle'
+                //   state.error = action.error
+                //   state.currentRequestId = undefined
+                // }
+            })
+    },
+})
+
+export const imagesSlice = createSlice({
+    name: 'images',
+    initialState: {
+        value: [] as IVideoImages[],
+    },
+    reducers: {
+        // setStatistics: (state, action) => {
+        //   state.value = action.payload;
+        // },
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchImages.pending, (state, action) => {
+                console.log('fetchImages.pending')
+                // if (state.loading === 'idle') {
+                //   state.loading = 'pending'
+                //   state.currentRequestId = action.meta.requestId
+                // }
+            })
+            .addCase(fetchImages.fulfilled, (state, action) => {
+                console.log('fetchImages.fulfilled')
+                const {payload} = action
+                state.value = payload
+            })
+            .addCase(fetchImages.rejected, (state, action) => {
+                console.log('fetchImages.rejected')
+                const {requestId} = action.meta
+            })
+    },
+})
 
 // Action creators are generated for each case reducer function
-export const {changeResultMatch} = resultMatchSlice.actions;
+export const {changeResultMatch} = resultMatchSlice.actions
 //export const {setNextMatch} = nextMatchSlice.actions;
 //export const {setStatistics} = statisticsSlice.actions;
 
-export const resultMatchReducer = resultMatchSlice.reducer;
-export const nextMatchesReducer = nextMatchesSlice.reducer;
-export const statisticsReducer = statisticsSlice.reducer;
-export const articlesReducer = articlesSlice.reducer;
+export const resultMatchReducer = resultMatchSlice.reducer
+export const nextMatchesReducer = nextMatchesSlice.reducer
+export const statisticsReducer = statisticsSlice.reducer
+export const articlesReducer = articlesSlice.reducer
+export const videoReducer = videoSlice.reducer
+export const imagesReducer = imagesSlice.reducer
