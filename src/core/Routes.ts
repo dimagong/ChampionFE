@@ -4,7 +4,7 @@ export enum Routes {
     USER = 'user', 
     VIDEO = 'video',
     VIDEO_LIST = 'videolist',
-    BEST_MOMENTS = 'bestMomemts', 
+    VIDEO_PLAYER = 'videoPlayer',
     ARTICLES = 'articles', 
     TEAM = 'team', 
     STATS = 'stats', 
