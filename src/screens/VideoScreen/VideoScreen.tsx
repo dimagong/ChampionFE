@@ -4,7 +4,6 @@ import {SafeAreaView} from 'react-native-safe-area-context'
 import {VideoPlayer} from '@ui/components/VideoPlayer'
 import {useTheme} from 'react-native-paper'
 import {Colors} from 'react-native/Libraries/NewAppScreen'
-import {Navigation} from '@src/interfaces'
 
 interface ShopScreenProps {
     route: any
