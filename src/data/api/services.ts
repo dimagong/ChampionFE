@@ -57,3 +57,23 @@ export const receiveArticles = async () => {
     }
 };
 
+export const receiveVideo = async () => {
+    try {
+        const {data} = await clientArticlesFirebase.get(`/video`);
+        return data;
+    } catch (error) {
+        console.log('Error service  receiveVideo======', error);
+        return Promise.reject(error);
+    }
+};
+
+export const receiveImages = async () => {
+    try {
+        const {data} = await clientArticlesFirebase.get(`/img`);
+        return data;
+    } catch (error) {
+        console.log('Error service receiveImgs======', error);
+        return Promise.reject(error);
+    }
+};
+
