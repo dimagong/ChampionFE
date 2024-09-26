@@ -10,6 +10,19 @@ module.exports = {
             'module-resolver',
             {
                 root: ['.'],
+                extensions: [
+                    '.ios.ts',
+                    '.android.ts',
+                    '.ts',
+                    '.js',
+                    '.jsx',
+                    '.ios.tsx',
+                    '.android.tsx',
+                    '.tsx',
+                    '.jsx',
+                    '.js',
+                    '.json',
+                ],
                 alias: {
                     '@src': './src',
                     '@core': './src/core',
@@ -21,8 +34,19 @@ module.exports = {
                 },
             },
         ],
-        ['module:react-native-dotenv'],
+        [
+            'module:react-native-dotenv',
+            {
+                moduleName: '@env',
+                path: '.env',
+                safe: false,
+                allowUndefined: true,
+                blocklist: null,
+                allowlist: null,
+                verbose: false,
+            },
+        ],
         // '@babel/plugin-proposal-export-namespace-from',
         // 'react-native-reanimated/plugin',
     ],
-};
+}

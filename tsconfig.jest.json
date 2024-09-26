@@ -1,0 +1,21 @@
+{
+    "extends": "./tsconfig",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "module": "commonjs",
+        // "paths": {
+        //     "@src/*": ["src/*"],
+        //     "@core/*": ["src/core/*"],
+        //     "@data/*": ["src/data/*"],
+        //     "@interfaces/*": ["src/interfaces/*"],
+        //     "@screens/*": ["src/screens/*"],
+        //     "@store/*": ["src/store/*"],
+        //     "@ui/*": ["src/ui/*"],
+        // },
+        "types": [
+            "@types/jest", 
+            "jest", 
+            "mocha",
+        ],
+    }
+}

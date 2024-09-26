@@ -8,9 +8,10 @@ import {Provider as ReduxProvider} from 'react-redux'
 
 import {Provider as PaperProvider} from 'react-native-paper'
 import {RootScreen} from './src/screens'
-import {theme} from '@src/ui/theme/theme'
+import {theme} from '@ui/theme/theme'
+//() => ReactNode
 
-const App: () => ReactNode = () => {
+const App = () => {
     return (
         <ReduxProvider store={store}>
             <PaperProvider theme={theme}>
