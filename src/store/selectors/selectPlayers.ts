@@ -1,7 +1,7 @@
 import {createSelector} from '@reduxjs/toolkit';
 import type {RootState} from '../store';
-import { IPlayers } from './../../interfaces/interfacesStatistics';
 import {TEAM_IDX} from '@env';
+import { IPlayers } from '@src/interfaces';
 
 export const selectPlayers = createSelector(
     (state: RootState) => state.statistics.value,

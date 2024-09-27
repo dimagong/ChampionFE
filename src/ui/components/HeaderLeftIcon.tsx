@@ -3,7 +3,7 @@ import {Navigation} from '@src/interfaces'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import {View, TouchableOpacity} from 'react-native'
-import {Routes} from '@src/core/Routes'
+import {Routes} from '@core/Routes'
 
 export const HeaderLeftIcon = ({navigation}: {navigation: Navigation}) => (
     <TouchableOpacity onPress={() => navigation.navigate(Routes.STATS)}>

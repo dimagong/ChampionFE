@@ -5,7 +5,7 @@ import {fetchNextMatches} from './thunks/fetchNextMatches'
 import {fetchArticles} from './thunks/fetchArticles'
 import {fetchVideo} from './thunks/fetchVideo'
 import {fetchImages} from './thunks/fetchImages'
-import {IVideoImages} from '@src/interfaces/interfacesVideoImages'
+import {IVideoImages} from '@interfaces/interfacesVideoImages'
 
 //import type {RootState} from '../store/store';
 
@@ -44,7 +44,7 @@ export const nextMatchesSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchNextMatches.pending, (state, action) => {
-                console.log('fetchNextMatches.pending')
+                // console.log('fetchNextMatches.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
@@ -96,7 +96,7 @@ export const statisticsSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchStatistics.pending, (state, action) => {
-                console.log('fetchStatistics.pending')
+                //console.log('fetchStatistics.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
@@ -117,7 +117,7 @@ export const statisticsSlice = createSlice({
                 // }
             })
             .addCase(fetchStatistics.rejected, (state, action) => {
-                console.log('fetchStatistics.rejected')
+                //console.log('fetchStatistics.rejected')
                 const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
@@ -144,14 +144,14 @@ export const articlesSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchArticles.pending, (state, action) => {
-                console.log('articles.pending')
+                //console.log('articles.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchArticles.fulfilled, (state, action) => {
-                console.log('fetchArticles.fulfilled')
+                //console.log('fetchArticles.fulfilled')
                 const {payload} = action
                 state.value = payload
                 //
@@ -166,7 +166,7 @@ export const articlesSlice = createSlice({
                 // }
             })
             .addCase(fetchArticles.rejected, (state, action) => {
-                console.log('fetchArticles.rejected')
+                //console.log('fetchArticles.rejected')
                 const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
@@ -193,14 +193,14 @@ export const videoSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchVideo.pending, (state, action) => {
-                console.log('video.pending')
+                //console.log('video.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchVideo.fulfilled, (state, action) => {
-                console.log('fetchVideo.fulfilled')
+                //console.log('fetchVideo.fulfilled')
                 const {payload} = action
                 state.value = payload
                 //
@@ -215,7 +215,7 @@ export const videoSlice = createSlice({
                 // }
             })
             .addCase(fetchVideo.rejected, (state, action) => {
-                console.log('fetchVideo.rejected')
+                //console.log('fetchVideo.rejected')
                 const {requestId} = action.meta
                 // if (
                 //   state.loading === 'pending' &&
@@ -242,19 +242,19 @@ export const imagesSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchImages.pending, (state, action) => {
-                console.log('fetchImages.pending')
+                //console.log('fetchImages.pending')
                 // if (state.loading === 'idle') {
                 //   state.loading = 'pending'
                 //   state.currentRequestId = action.meta.requestId
                 // }
             })
             .addCase(fetchImages.fulfilled, (state, action) => {
-                console.log('fetchImages.fulfilled')
+                //console.log('fetchImages.fulfilled')
                 const {payload} = action
                 state.value = payload
             })
             .addCase(fetchImages.rejected, (state, action) => {
-                console.log('fetchImages.rejected')
+                //console.log('fetchImages.rejected')
                 const {requestId} = action.meta
             })
     },

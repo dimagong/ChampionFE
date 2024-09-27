@@ -7,12 +7,12 @@ import {
     //setStatistics,
 } from './../../store/slices'
 
-import {selectNextMatch} from '@src/store/selectors/selectNextMatch'
+import {selectNextMatch} from '@store/selectors/selectNextMatch'
 
 // import {receiveStatistics} from '@src/data/api/services'
-import {fetchStatistics} from '@src/store/thunks/fetchStatistics'
-import {fetchNextMatches} from '@src/store/thunks/fetchNextMatches'
-import {fetchArticles} from '@src/store/thunks/fetchArticles'
+import {fetchStatistics} from '@store/thunks/fetchStatistics'
+import {fetchNextMatches} from '@store/thunks/fetchNextMatches'
+import {fetchArticles} from '@store/thunks/fetchArticles'
 
 import {
     StatusBar,
@@ -29,7 +29,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 // import {CardComponent, CardComponentTitle} from 'ui/components/CardComponent';
-import {HeaderComponent} from '@src/ui/components/HeaderComponent'
+import {HeaderComponent} from '@ui/components/HeaderComponent'
 
 import type {RootState} from '@store/store'
 import {CardComponentTitle, Carousel} from '@ui/components'
@@ -40,8 +40,8 @@ import {useTheme} from 'react-native-paper'
 import {IArticle, IMatch} from '@src/interfaces'
 import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
 import {selectFinishedMatches} from '@store/selectors'
-import {Routes} from '@src/core/Routes'
-import {theme} from '@src/ui/theme/theme'
+import {Routes} from '@core/Routes'
+import {theme} from '@ui/theme/theme'
 // import {selectFinishedMatches} from '~/store/selectors';
 // import {CardComponentTitle} from '~/ui/components/';
 
@@ -73,8 +73,8 @@ export const HomeScreen = () => {
     const navigation = useNavigation<any>()
     const {deviceHeight, deviceWidth, colors} = useTheme<typeof theme>()
     //const navigation = useNavigation();
-    const count = useSelector((state: RootState) => state?.resultMatch?.value)
-    const state = useSelector((state: RootState) => state)
+    // const count = useSelector((state: RootState) => state?.resultMatch?.value)
+    // const state = useSelector((state: RootState) => state)
     const lastMatches: IMatch[] = useSelector(selectFinishedMatches)
     const articles: IArticle[] = useSelector(
         (state: RootState) => state?.articles?.value,
@@ -92,7 +92,7 @@ export const HomeScreen = () => {
     const redirectStatsPage = (screen = 'Stats', params = {}) =>
         navigation.navigate(screen, params)
     const nextMatch = useSelector(selectNextMatch)
-    console.log('teams', nextMatch)
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="#000000" />

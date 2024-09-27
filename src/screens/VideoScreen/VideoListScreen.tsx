@@ -13,11 +13,11 @@ import {
 import type {RootState} from '@store/store'
 import {useTheme} from 'react-native-paper'
 import {ActionCreatorWithPayload} from '@reduxjs/toolkit'
-import {fetchImages} from '@src/store/thunks/fetchImages'
-import {fetchVideo} from '@src/store/thunks/fetchVideo'
-import {theme as Theme} from '@src/ui/theme/theme'
-import {convertVideoImages} from '@src/utils/videoDataConvertation'
-import {VideoCardComponent} from '@src/ui/components/VideoCardComponent'
+import {fetchImages} from '@store/thunks/fetchImages'
+import {fetchVideo} from '@store/thunks/fetchVideo'
+import {theme as Theme} from '@ui/theme/theme'
+import {VideoCardComponent} from '@ui/components/VideoCardComponent'
+import {convertVideoImages} from './../../utils/videoDataConvertation'
 
 export const VideoListScreen = () => {
     const theme = useTheme<typeof Theme>()

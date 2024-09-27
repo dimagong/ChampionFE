@@ -1,7 +1,7 @@
 import {IAnnounceVideoCard} from '@src/interfaces'
 import {NavigationProp, useNavigation} from '@react-navigation/native'
 import {CardComponent} from '@ui/components'
-import {Routes} from '@src/core/Routes'
+import {Routes} from '@core/Routes'
 import {View, Image} from 'react-native'
 import {theme as Theme} from '@src/ui/theme/theme'
 import {useTheme} from 'react-native-paper'

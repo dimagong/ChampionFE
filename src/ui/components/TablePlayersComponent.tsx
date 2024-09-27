@@ -1,8 +1,8 @@
 import {DataTable, MD3Theme, Text, useTheme} from 'react-native-paper'
-import {IPlayers, IPlayerStats, ITeamsStatistics} from '@src//interfaces'
+import {IPlayers, IPlayerStats, ITeamStatistics} from '@src/interfaces'
 import {StyleSheet} from 'react-native'
 import {MD3Colors} from 'react-native-paper/lib/typescript/types'
-import type {theme as Theme} from '../../../App'
+import type {theme as Theme} from '@ui/theme/theme'
 
 interface ITablePlayersComponent {
     players: IPlayers[]

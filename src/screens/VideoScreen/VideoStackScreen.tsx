@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import {LogoTitle} from '@ui/components'
 import {VideoScreen} from './VideoScreen'
 import {useTheme} from 'react-native-paper'
-import {Routes} from '@src/core/Routes'
+import {Routes} from '@core/Routes'
 import {VideoListScreen} from './VideoListScreen'
 
 const VideoStack = createNativeStackNavigator()

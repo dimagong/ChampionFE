@@ -1,26 +1,28 @@
-import {DataTable, MD3Theme, Text, useTheme} from 'react-native-paper';
+import {DataTable, MD3Theme, Text, useTheme} from 'react-native-paper'
 // import {ITeamsStatistics} from 'src/interfaces';
-import {StyleSheet} from 'react-native';
-import type {theme as Theme} from './../../../App';
-import {TEAM_IDX} from '@env';
+import {StyleSheet} from 'react-native'
+import type {theme as Theme} from './../theme/theme'
+import {TEAM_IDX} from '@env'
+import {ITeamStatistics} from '@src/interfaces'
 
 interface ITableComponent {
     //teamsStatistics: ITeamsStatistics;
-    teamsStatistics: any;
+    teamsStatistics: ITeamStatistics[]
 }
 
 const makeShortName = (name: string) => {
-    let nameParts = name.split(' ');
+    let nameParts = name.split(' ')
     if (nameParts[0].length < 4) {
-        nameParts.shift();
+        nameParts.shift()
     }
-    return nameParts.join('');
-};
+    return nameParts.join('')
+}
 
 const TableComponent = ({teamsStatistics}: ITableComponent) => {
-    const theme: typeof Theme = useTheme();
+    console.log('teamsStatistics==========', teamsStatistics)
+    const theme: typeof Theme = useTheme()
 
-    const styles = makeStyles(theme.colors);
+    const styles = makeStyles(theme.colors)
     return (
         <DataTable
             style={{
@@ -73,10 +75,10 @@ const TableComponent = ({teamsStatistics}: ITableComponent) => {
                 </DataTable.Row>
             ))}
         </DataTable>
-    );
-};
+    )
+}
 
-export default TableComponent;
+export default TableComponent
 
 const makeStyles = (colors: typeof Theme.colors) =>
     StyleSheet.create({
@@ -100,4 +102,4 @@ const makeStyles = (colors: typeof Theme.colors) =>
         rowAccent: {
             backgroundColor: colors.backdrop,
         },
-    });
+    })

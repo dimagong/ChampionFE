@@ -7,7 +7,7 @@ import {TeamScreen} from '../TeamScreen'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Navigation} from '@interfaces/index'
 import {HomeScreen} from './HomeScreen'
-import {Routes} from '@src/core/Routes'
+import {Routes} from '@core/Routes'
 
 const Tab = createBottomTabNavigator()
 

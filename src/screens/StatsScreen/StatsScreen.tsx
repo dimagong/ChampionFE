@@ -13,7 +13,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '@store/store'
 import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
-import {ITeamsStatistics, ITeamStatistics} from '@interfaces/index'
+import {ITeamStatistics} from '@interfaces/index'
 import {Section} from '@ui/components/Section'
 import TableComponent from '@ui/components/TableComponent'
 
@@ -35,7 +35,7 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     }
 
-    const teamsStatistics: ITeamsStatistics = statistics?.map(stat => {
+    const teamsStatistics: ITeamStatistics[] = statistics?.map(stat => {
         return {
             team: stat?.team?.name,
             matches: stat?.stats?.matches.played,

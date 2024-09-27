@@ -5,7 +5,6 @@ export const fetchStatistics = createAsyncThunk(
   'statistics/fetchStatistics',
   async (thunkAPI) => {
     const data = await receiveStatistics()
-    console.log('fetchStatistics data', data)
     return data
   }
 )
