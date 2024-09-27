@@ -27,7 +27,7 @@ export const receiveStatistics = async () => {
         const { results, players } = data.resultsTable;
         return { results, players };
     } catch (error) {
-        console.log('Error service receiveStatistics', error);
+        // console.log('Error service receiveStatistics', error);
         return Promise.reject(error);
     }
 };
@@ -42,7 +42,7 @@ export const receiveNextMatches = async () => {
 
         return matches;
     } catch (error) {
-        console.log('Error service receiveNextMatches', error);
+        // console.log('Error service receiveNextMatches', error);
         return Promise.reject(error);
     }
 };
@@ -52,7 +52,7 @@ export const receiveArticles = async () => {
         const {data} = await clientArticlesFirebase.get(`/articles`);
         return data;
     } catch (error) {
-        console.log('Error service receiveArticles======', error);
+        // console.log('Error service receiveArticles======', error);
         return Promise.reject(error);
     }
 };
@@ -62,7 +62,7 @@ export const receiveVideo = async () => {
         const {data} = await clientArticlesFirebase.get(`/video`);
         return data;
     } catch (error) {
-        console.log('Error service  receiveVideo======', error);
+        // console.log('Error service  receiveVideo======', error);
         return Promise.reject(error);
     }
 };
@@ -72,8 +72,28 @@ export const receiveImages = async () => {
         const {data} = await clientArticlesFirebase.get(`/img`);
         return data;
     } catch (error) {
+        // console.log('Error service receiveImgs======', error);
+        return Promise.reject(error);
+    }
+};
+
+
+export const receivePublicKeyStripe = async () => {
+    try {
+        const {data} = await clientArticlesFirebase.get(`/payment-public-permission`);
+        return data;
+    } catch (error) {
         console.log('Error service receiveImgs======', error);
         return Promise.reject(error);
     }
 };
 
+export const implementPaymentSheet = async (payload: object) => {
+    try {
+        const {data} = await clientArticlesFirebase.post(`/payment-sheet`, {...payload});
+        return data;
+    } catch (error) {
+        // console.log('Error service implementPaymentSheet======', error);
+        return Promise.reject(error);
+    }
+};
