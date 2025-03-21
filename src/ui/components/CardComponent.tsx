@@ -1,16 +1,11 @@
 import {FC} from 'react'
 import {StyleSheet, View} from 'react-native'
 
-import {
-    Avatar,
-    Card,
-    Title,
-    IconButton,
-    Text,
-    MD3Theme,
-} from 'react-native-paper'
+import {Avatar, Card, Title, IconButton, MD3Theme} from 'react-native-paper'
 import {IArticle} from '@src/interfaces'
 import {useTheme} from 'react-native-paper'
+import {IArticleContent} from '@src/interfaces'
+import RenderHtml from 'react-native-render-html'
 
 interface ICardComponent extends IArticle {
     onClickHandler?: () => void
@@ -28,6 +23,7 @@ export const CardComponentTitle: FC<Partial<ICardComponent>> = ({
                 titleStyle={styles.titleStyle}
                 title={title}
                 subtitle={subTitle}
+                titleNumberOfLines={3}
                 // left={props => <Avatar.Icon {...props} icon="folder" />}
 
                 left={props => (
@@ -54,21 +50,10 @@ export const CardComponent = (props: ICardComponent) => {
             <Card.Cover source={{uri: url}} />
             <Card.Content>
                 <Title style={styles.contentTitle}>{title ?? ''}</Title>
-                <Title>{subTitle ?? ''}</Title>
-                {content?.data?.map(el => {
-                    return (
-                        <View key={JSON.stringify(el)}>
-                            <Text
-                                style={{
-                                    ...styles.question,
-                                    fontSize: theme.fonts.bodyLarge.fontSize,
-                                }}>
-                                {el?.question ?? ''}
-                            </Text>
-                            <Text>{el?.answer ?? ''}</Text>
-                        </View>
-                    )
-                })}
+                {subTitle && <Title>{subTitle}</Title>}
+                <View style={styles.card__content}>
+                    <RenderHtml source={{html: content as string}} />
+                </View>
             </Card.Content>
         </Card>
     )
@@ -76,13 +61,18 @@ export const CardComponent = (props: ICardComponent) => {
 
 const styles = StyleSheet.create({
     card: {
+        padding: 5,
         marginBottom: 30,
     },
+    card__content: {
+        display: 'flex',
+    },
     titleStyle: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '700',
     },
     contentTitle: {
+        marginTop: 20,
         fontSize: 20,
         fontWeight: '600',
     },

@@ -85,8 +85,6 @@ export const HomeScreen = () => {
         dispatch(fetchNextMatches())
         dispatch(fetchArticles())
         dispatch(fetchStatistics())
-        // const data = receiveStatistics();
-        // data.then(data => dispatch(setStatistics([...data])));
     }, [])
 
     const redirectStatsPage = (screen = 'Stats', params = {}) =>
@@ -105,7 +103,7 @@ export const HomeScreen = () => {
                     {articles.map(item => (
                         <Articles
                             {...item}
-                            key={item.id}
+                            key={item.title}
                             // navigation={navigation}
                         />
                     ))}
