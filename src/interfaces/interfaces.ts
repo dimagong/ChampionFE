@@ -1,22 +1,29 @@
 export interface Navigation {
-    navigate(destination: string, params?: any): void;
+    navigate(destination: string, params?: any): void
 }
 
 export interface IMatch {
-    homeaway: 'home' | 'away';
+    homeaway: 'home' | 'away'
     match: {
-        startDate: string;
-        __issfId: number;
-        _id: string;
-    };
-    matchId: string;
-    result: 'L' | 'D' | 'W';
-    score: string;
+        startDate: string
+        __issfId: number
+        _id: string
+    }
+    matchId: string
+    result: 'L' | 'D' | 'W'
+    score: string
     team: {
-        displayName: string;
-        name: string;
-        resignation: boolean;
-        _id: string;
-    };
+        displayName: string
+        name: string
+        resignation: boolean
+        _id: string
+    }
 }
 
+export interface ILastMatch {
+    guestTeam: string
+    homeTeam: string
+    score: string
+    homeTeamScore: number
+    guestTeamScore: number
+}

@@ -13,7 +13,7 @@ type HeaderComponentType = {
 export const HeaderComponent: React.FC<HeaderComponentType> = ({nextMatch}) => {
     const {teamHome, teamGuest, time} = nextMatch
     const {deviceHeight, colors} = useTheme<typeof theme>()
-    const currentHeight = deviceHeight / 2
+    const currentHeight = deviceHeight / 2.3
 
     return (
         <View
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     container__header: {
         width: '100%',
-        height: 250,
+        // height: 150,
     },
     header__img: {
         width: '100%',
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 25,
         borderBottomRightRadius: 25,
         width: '100%',
-        height: 350,
+        // height: 350,
     },
     header__content: {
         flex: 1,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     competition__container: {
         marginTop: 'auto',
         marginBottom: 'auto',
-        paddingTop: 20,
+        paddingTop: 35,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

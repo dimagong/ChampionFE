@@ -31,19 +31,19 @@ const TableComponent = ({teamsStatistics}: ITableComponent) => {
             }}>
             <DataTable.Header>
                 <DataTable.Title style={styles.cellPosition}>
-                    <Text style={styles.title}> Pos</Text>
+                    <Text style={styles.title}>Pos</Text>
                 </DataTable.Title>
                 <DataTable.Title style={styles.cellTeam}>
-                    <Text style={styles.title}> Team</Text>
-                </DataTable.Title>
-                <DataTable.Title numeric>
-                    <Text style={styles.title}> P</Text>
+                    <Text style={styles.title}>Team</Text>
                 </DataTable.Title>
                 <DataTable.Title numeric>
                     <Text style={styles.title}> W</Text>
                 </DataTable.Title>
                 <DataTable.Title numeric>
-                    <Text style={styles.title}> GD</Text>
+                    <Text style={styles.title}>D</Text>
+                </DataTable.Title>
+                <DataTable.Title numeric>
+                    <Text style={styles.title}>L</Text>
                 </DataTable.Title>
                 <DataTable.Title numeric>
                     <Text style={styles.titlePoints}> Pts</Text>
@@ -52,22 +52,21 @@ const TableComponent = ({teamsStatistics}: ITableComponent) => {
 
             {teamsStatistics.map((team, idx) => (
                 <DataTable.Row
-                    key={team.id}
-                    style={team.id === TEAM_IDX ? styles.rowAccent : null}>
+                    key={`${team.team}`}
+                    style={team.team === 'Liverpool' ? styles.rowAccent : null}>
                     <DataTable.Cell style={styles.cellPosition}>
                         {idx + 1}
                     </DataTable.Cell>
                     <DataTable.Cell style={styles.cellTeam}>
-                        {team.team}
-                    </DataTable.Cell>
-                    <DataTable.Cell numeric>
-                        {team.matches ?? 'no data'}
+                        {`${team.team}`}
                     </DataTable.Cell>
                     <DataTable.Cell numeric>
                         {team.won ?? 'no data'}
                     </DataTable.Cell>
+                    <DataTable.Cell numeric>{`${team.drawn} `}</DataTable.Cell>
+
                     <DataTable.Cell numeric>
-                        {team.lost ?? 'no data'}
+                        {`${team.won - team.drawn}`}
                     </DataTable.Cell>
                     <DataTable.Cell numeric>
                         {team.points ?? 'no data'}
@@ -83,11 +82,10 @@ export default TableComponent
 const makeStyles = (colors: typeof Theme.colors) =>
     StyleSheet.create({
         cellPosition: {
-            maxWidth: 20,
             width: 20,
         },
         cellTeam: {
-            minWidth: 90,
+            minWidth: 80,
         },
         title: {
             fontWeight: '700',

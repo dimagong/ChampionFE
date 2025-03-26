@@ -6,7 +6,7 @@ export const carouselStyles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 5,
         height: 80,
-        minWidth: 100,
+        minWidth: 200,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

@@ -26,6 +26,8 @@ export const clientBaseAPI = axios.create({
     },
 })
 
+//https://footballapi.pulselive.com/football/teams?pageSize=100&comps=1&altIds=true&page=0
+
 //todo improve error handler
 const errorHandler = (error: unknown) => {
     if (error instanceof AxiosError) {
@@ -45,11 +47,25 @@ const errorHandler = (error: unknown) => {
 
 export const receiveStatistics = async () => {
     try {
-        const {data} = await clientSportNet.get(
-            `public/${PARENT_RELATION}/competitions/${COMPETITIONS}/parts/${PART_ID}`,
-        )
-        const {results, players} = data.resultsTable
-        return {results, players}
+        const {data} = await clientBaseAPI.get(`/premierLeague/results`)
+        // const {data} = await clientSportNet.get(
+        //     `public/${PARENT_RELATION}/competitions/${COMPETITIONS}/parts/${PART_ID}`,
+        // )
+        // const {results, players} = data.resultsTable
+
+        return data
+    } catch (error) {
+        errorHandler(error)
+        return Promise.reject(error)
+    }
+}
+
+export const receivePlayers = async () => {
+    try {
+        //premierLeague/results
+        const {data} = await clientBaseAPI.get(`/premierLeague/players`)
+        console.log('data===players', data)
+        return data
     } catch (error) {
         errorHandler(error)
         return Promise.reject(error)
@@ -59,8 +75,19 @@ export const receiveStatistics = async () => {
 export const receiveNextMatches = async () => {
     try {
         const {data} = await clientBaseAPI.get(`/premierLeague/nextMatches`)
-        console.log('data===receiveNextMatches', data)
 
+        return data
+    } catch (error) {
+        errorHandler(error)
+        return Promise.reject(error)
+    }
+}
+
+export const receiveLastMatches = async () => {
+    try {
+        const {data} = await clientBaseAPI.get(
+            `/premierLeague/liverpoolMatchesResults`,
+        )
         return data
     } catch (error) {
         errorHandler(error)

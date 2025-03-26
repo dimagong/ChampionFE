@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import type {ReactNode} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
@@ -22,12 +22,14 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 import {IPlayers, IPlayerStats, Navigation} from '@interfaces/index'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '@store/store'
 import {selectPlayers} from '@store/selectors/selectPlayers'
 import {useTheme} from 'react-native-paper'
 import {Section} from '@ui/components/Section'
 import TablePlayersComponent from '@ui/components/TablePlayersComponent'
+import {fetchPlayers} from '@src/store/thunks/fetchPlayers'
+import {ActionCreatorWithPayload} from '@reduxjs/toolkit'
 //src/store/selectors/selectPlayers
 
 const Stack = createNativeStackNavigator()
@@ -39,8 +41,14 @@ interface TeamScreenProps {
 export const TeamScreen = ({navigation}: TeamScreenProps) => {
     const players: IPlayers[] = useSelector(selectPlayers)
 
+    const dispatch = useDispatch<ActionCreatorWithPayload<any> | any>()
+
+    useEffect(() => {
+        dispatch(fetchPlayers())
+    }, [])
+
     const theme = useTheme()
-    console.log('Players====', players)
+    // console.log('Players====', players)
 
     const isDarkMode = useColorScheme() === 'dark'
     const backgroundStyle = {

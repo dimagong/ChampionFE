@@ -26,7 +26,7 @@ const Stack = createNativeStackNavigator()
 
 export const StatsScreen = ({navigation}: {navigation: any}) => {
     const statistics = useSelector(
-        (state: RootState) => state.statistics.value?.results ?? [],
+        (state: RootState) => state.statistics.results ?? [],
     ) as any[]
 
     const isDarkMode = useColorScheme() === 'dark'
@@ -35,17 +35,18 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     }
 
-    const teamsStatistics: ITeamStatistics[] = statistics?.map(stat => {
-        return {
-            team: stat?.team?.name,
-            matches: stat?.stats?.matches.played,
-            draw: stat?.stats?.matches.draw,
-            lost: stat?.stats?.matches.lost,
-            won: stat?.stats?.matches.won,
-            points: stat?.stats?.points,
-            id: stat?.team?._id,
-        } as ITeamStatistics
-    })
+    console.log('StatsScreen==========statistics', statistics)
+    // const teamsStatistics: ITeamStatistics[] = statistics?.map(stat => {
+    //     return {
+    //         team: stat?.team?.name,
+    //         matches: stat?.stats?.matches.played,
+    //         draw: stat?.stats?.matches.draw,
+    //         lost: stat?.stats?.matches.lost,
+    //         won: stat?.stats?.matches.won,
+    //         points: stat?.stats?.points,
+    //         id: stat?.team?._id,
+    //     } as ITeamStatistics
+    // })
 
     return (
         <SafeAreaView style={backgroundStyle}>
@@ -63,7 +64,7 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
                     }}>
                     <Section title="Match statistics">
                         <>
-                            <TableComponent teamsStatistics={teamsStatistics} />
+                            <TableComponent teamsStatistics={statistics} />
                         </>
                     </Section>
                 </View>

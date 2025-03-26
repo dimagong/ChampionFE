@@ -6,6 +6,8 @@ import {fetchArticles} from './thunks/fetchArticles'
 import {fetchVideo} from './thunks/fetchVideo'
 import {fetchImages} from './thunks/fetchImages'
 import {IVideoImages} from '@interfaces/interfacesVideoImages'
+import {fetchLastMatches} from './thunks/fetchLastMatches'
+import {fetchPlayers} from './thunks/fetchPlayers'
 
 //import type {RootState} from '../store/store';
 
@@ -28,6 +30,55 @@ export const resultMatchSlice = createSlice({
         changeResultMatch: (state, action) => {
             state.value = action.payload
         },
+    },
+})
+
+export const lastMatches = createSlice({
+    name: 'lastMatches',
+    initialState: {
+        lastMatches: [],
+    },
+    reducers: {
+        // setNextMatch: (state, action) => {
+        //   state.nextmatches = action.payload;
+        // },
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchLastMatches.pending, (state, action) => {
+                // console.log('fetchNextMatches.pending')
+                // if (state.loading === 'idle') {
+                //   state.loading = 'pending'
+                //   state.currentRequestId = action.meta.requestId
+                // }
+            })
+            .addCase(fetchLastMatches.fulfilled, (state, action) => {
+                const {payload} = action
+                state.lastMatches = payload
+
+                //
+                //state.value = payload;
+                // if (
+                //   state.loading === 'pending' &&
+                //   state.currentRequestId === requestId
+                // ) {
+                //   state.loading = 'idle'
+                //   state.entities.push(action.payload)
+                //   state.currentRequestId = undefined
+                // }
+            })
+            .addCase(fetchLastMatches.rejected, (state, action) => {
+                //console.log('fetchLastMatches.rejected')
+                const {requestId} = action.meta
+                // if (
+                //   state.loading === 'pending' &&
+                //   state.currentRequestId === requestId
+                // ) {
+                //   state.loading = 'idle'
+                //   state.error = action.error
+                //   state.currentRequestId = undefined
+                // }
+            })
     },
 })
 
@@ -83,10 +134,7 @@ export const nextMatchesSlice = createSlice({
 export const statisticsSlice = createSlice({
     name: 'statistics',
     initialState: {
-        value: {
-            players: [],
-            results: [],
-        } as IStatistics,
+        results: [],
     },
     reducers: {
         // setStatistics: (state, action) => {
@@ -104,7 +152,7 @@ export const statisticsSlice = createSlice({
             })
             .addCase(fetchStatistics.fulfilled, (state, action) => {
                 const {payload} = action
-                state.value = payload
+                state.results = payload
                 //
                 //;
                 // if (
@@ -128,6 +176,24 @@ export const statisticsSlice = createSlice({
                 //   state.currentRequestId = undefined
                 // }
             })
+    },
+})
+
+export const playersSlice = createSlice({
+    name: 'players',
+    initialState: {
+        players: [],
+    },
+    reducers: {},
+    extraReducers: builder => {
+        builder
+            .addCase(fetchPlayers.pending, (state, action) => {})
+            .addCase(fetchPlayers.fulfilled, (state, action) => {
+                //console.log('fetchArticles.fulfilled')
+                const {payload} = action
+                state.players = payload
+            })
+            .addCase(fetchPlayers.rejected, (state, action) => {})
     },
 })
 
@@ -271,3 +337,5 @@ export const statisticsReducer = statisticsSlice.reducer
 export const articlesReducer = articlesSlice.reducer
 export const videoReducer = videoSlice.reducer
 export const imagesReducer = imagesSlice.reducer
+export const lastMatchesReducer = lastMatches.reducer
+export const playersReducer = playersSlice.reducer

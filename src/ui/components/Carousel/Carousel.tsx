@@ -3,30 +3,41 @@ import {Avatar, useTheme} from 'react-native-paper'
 import {theme} from '@src/ui/theme/theme'
 import {useNavigation} from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import {IMatch} from '@src/interfaces'
+import {ILastMatch, IMatch} from '@src/interfaces'
 import {carouselStyles} from './styles.js'
 
 interface ICarouselProps {
-    lastMatches: IMatch[]
+    lastMatches: ILastMatch[]
 }
 interface ISlideProps {
-    data: IMatch
+    data: ILastMatch
 }
 
 const Slide = ({data}: ISlideProps) => {
     const navigation = useNavigation<any>()
     const {deviceHeight, deviceWidth, colors} = useTheme<typeof theme>()
-    const teamHome =
-        data.homeaway === 'home' ? `Liptovská Štiavnica` : data.team.name
-    const teamGuest =
-        data.homeaway === 'home' ? data.team.name : `Liptovská Štiavnica`
+    const teamHome = data.homeTeam
+    // data.homeaway === 'home' ? `Liptovská Štiavnica` : data.team.name
+    const teamGuest = data.guestTeam
+    // data.homeaway === 'home' ? data.team.name : `Liptovská Štiavnica`
 
-    const iconAvatar: string =
-        data.result === 'W'
-            ? 'human-handsup'
-            : data.result === 'L'
-            ? 'human-handsdown'
-            : 'handshake'
+    const isLiverpoolVin =
+        (data.homeTeam === 'Liverpool' &&
+            data.homeTeamScore > data.guestTeamScore) ||
+        (data.guestTeam === 'Liverpool' &&
+            data.guestTeamScore > data.homeTeamScore)
+    const isLiverpoolLose =
+        (data.homeTeam === 'Liverpool' &&
+            data.homeTeamScore < data.guestTeamScore) ||
+        (data.guestTeam === 'Liverpool' &&
+            data.guestTeamScore < data.homeTeamScore)
+
+    const iconAvatar: string = isLiverpoolVin
+        ? 'human-handsup'
+        : isLiverpoolLose
+        ? 'human-handsdown'
+        : 'handshake'
+
     return (
         <View style={[carouselStyles.slide__box, carouselStyles.shadowProp]}>
             <View>

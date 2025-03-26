@@ -1,10 +1,13 @@
+import {__String} from 'typescript'
 
-export interface ITeamStatistics{
-    draw: number,
-    id: ID, 
-    lost: number,
-    matches: number, 
-    points: number,
-    team: string,
+export interface ITeamStatistics {
+    team: __String
+    position: number
+    points: number
+    played: number
     won: number
+    drawn: number
+    goalsFor: number
+    goalsAgainst: number
+    goalsDifference: number
 }

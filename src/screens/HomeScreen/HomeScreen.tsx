@@ -37,11 +37,12 @@ import {CardComponentTitle, Carousel} from '@ui/components'
 import {useTheme} from 'react-native-paper'
 
 // import {selectFinishedMatches} from '~/store/selectors';
-import {IArticle, IMatch} from '@src/interfaces'
+import {IArticle, ILastMatch, IMatch} from '@src/interfaces'
 import {ActionCreatorWithPayload, AsyncThunkAction} from '@reduxjs/toolkit'
 import {selectFinishedMatches} from '@store/selectors'
 import {Routes} from '@core/Routes'
 import {theme} from '@ui/theme/theme'
+import {fetchLastMatches} from '@src/store/thunks/fetchLastMatches'
 // import {selectFinishedMatches} from '~/store/selectors';
 // import {CardComponentTitle} from '~/ui/components/';
 
@@ -75,7 +76,7 @@ export const HomeScreen = () => {
     //const navigation = useNavigation();
     // const count = useSelector((state: RootState) => state?.resultMatch?.value)
     // const state = useSelector((state: RootState) => state)
-    const lastMatches: IMatch[] = useSelector(selectFinishedMatches)
+    const lastMatches: ILastMatch[] = useSelector(selectFinishedMatches)
     const articles: IArticle[] = useSelector(
         (state: RootState) => state?.articles?.value,
     )
@@ -83,6 +84,7 @@ export const HomeScreen = () => {
 
     React.useEffect(() => {
         dispatch(fetchNextMatches())
+        dispatch(fetchLastMatches())
         dispatch(fetchArticles())
         dispatch(fetchStatistics())
     }, [])

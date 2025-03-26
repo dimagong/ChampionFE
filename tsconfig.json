@@ -12,5 +12,6 @@
       "@ui/*": ["src/ui/*"],
     },
     "typeRoots": ["./src/interfaces"],
+    "module": "es2020",
   },
 }
