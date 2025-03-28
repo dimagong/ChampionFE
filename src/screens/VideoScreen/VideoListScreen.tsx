@@ -37,11 +37,9 @@ export const VideoListScreen = () => {
                 barStyle="light-content"
                 backgroundColor={theme.colors.onBackground}
             />
+            <Text style={styles.container__title}>The Best Moments</Text>
             <ScrollView>
                 <View style={styles.container__view}>
-                    <Text style={styles.container__title}>
-                        The Best Moments
-                    </Text>
                     {mediaContent.map(content => (
                         <VideoCardComponent
                             name={content.name}
@@ -64,11 +62,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     container__title: {
-        paddingTop: 20,
+        width: '100%',
+        paddingTop: 15,
         paddingBottom: 15,
-        color: 'black',
-        fontSize: 30,
-        fontWeight: '700',
+        color: 'white',
+        backgroundColor: '#dc0714',
+        fontSize: 20,
+        paddingLeft: 10,
     },
     container__carousel: {
         height: 'auto',

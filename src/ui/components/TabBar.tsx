@@ -1,5 +1,5 @@
 import {TouchableOpacity, View, StyleSheet} from 'react-native'
-import Icons from 'react-native-vector-icons/MaterialIcons'
+import Icons from 'react-native-vector-icons/Ionicons'
 import {Routes} from '@core/Routes'
 
 type RotesTypes = `${Routes}`
@@ -12,13 +12,16 @@ const setIcon = (label: RotesTypes) => {
             iconName = 'home'
             break
         case Routes.SHOP:
-            iconName = 'shopping-bag'
+            iconName = 'cart-sharp'
             break
         case Routes.USER:
             iconName = 'person'
             break
+        case Routes.TICKETS:
+            iconName = 'ticket-outline'
+            break
         case Routes.VIDEO:
-            iconName = 'ondemand-video'
+            iconName = 'videocam-outline'
             break
         default:
             iconName = 'home'

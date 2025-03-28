@@ -19,7 +19,6 @@ const makeShortName = (name: string) => {
 }
 
 const TableComponent = ({teamsStatistics}: ITableComponent) => {
-    console.log('teamsStatistics==========', teamsStatistics)
     const theme: typeof Theme = useTheme()
 
     const styles = makeStyles(theme.colors)
@@ -27,7 +26,6 @@ const TableComponent = ({teamsStatistics}: ITableComponent) => {
         <DataTable
             style={{
                 width: theme.deviceWidth,
-                paddingRight: 40,
             }}>
             <DataTable.Header>
                 <DataTable.Title style={styles.cellPosition}>

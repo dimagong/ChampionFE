@@ -121,7 +121,7 @@ export const PaymentComponent = () => {
                     <>
                         <View style={styles.container__content}>
                             <Text style={styles.content__price}> Price:</Text>
-                            <Text style={styles.content__price}> 2</Text>
+                            <Text style={styles.content__price}> 80</Text>
                             <Icon name="euro" style={styles.content__icon} />
                         </View>
 

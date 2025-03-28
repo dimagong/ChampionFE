@@ -47,7 +47,6 @@ const TablePlayersComponent = ({players}: ITablePlayersComponent) => {
         <DataTable
             style={{
                 width: theme.deviceWidth,
-                paddingRight: 40,
             }}>
             <DataTable.Header>
                 <DataTable.Title style={styles.cellWidth}>
