@@ -12,7 +12,6 @@ type ShopScreenDetailRouteProp = {
 //{route}: ShopScreenProps
 export const ShopScreenDetail = () => {
     const {params} = useRoute<RouteProp<ParamListBase>>()
-    console.log('params=======', params)
     const {name, price, url} = params as ShopScreenDetailRouteProp
     return (
         <View style={styles.container}>

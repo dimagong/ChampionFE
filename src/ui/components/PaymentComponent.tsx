@@ -21,7 +21,7 @@ export const PaymentComponent = () => {
     const {deviceHeight, colors} = useTheme<typeof theme>()
 
     const nextMatch = useSelector(selectNextMatch)
-    console.log('nextMatch====', nextMatch)
+
     // {"teamGuest": "ŠK Belá", "teamHome": "TJ Družstevník Liptovská Štiavnica", "time": "9/28/24, 15:00"}
     //TEAM_NAME_OFFICIAL
     const amountPayment = 200
@@ -74,7 +74,6 @@ export const PaymentComponent = () => {
         initializePaymentSheet()
     }, [])
 
-    console.log('loading=====', loading)
     return (
         <Screen>
             <View style={styles.container}>

@@ -64,7 +64,7 @@ export const receivePlayers = async () => {
     try {
         //premierLeague/results
         const {data} = await clientBaseAPI.get(`/premierLeague/players`)
-        console.log('data===players', data)
+
         return data
     } catch (error) {
         errorHandler(error)

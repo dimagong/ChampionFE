@@ -11,7 +11,7 @@ export const selectPlayers = createSelector(
         //     (item: any) => item.teamId == TEAM_IDX,
         // );
         // return findPlayers as IPlayers[];
-        console.log('value====selectPlayers', value.players)
+
         return value.players
     },
 )
