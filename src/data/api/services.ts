@@ -108,6 +108,16 @@ export const receiveArticles = async () => {
     }
 }
 
+export const receiveShopItems = async () => {
+    try {
+        const {data} = await clientBaseAPI.get(`/premierLeague/liverpoolShop`)
+        return data
+    } catch (error) {
+        errorHandler(error)
+        return Promise.reject(error)
+    }
+}
+
 export const receiveVideo = async () => {
     try {
         const {data} = await clientBaseAPI.get(`/video`)

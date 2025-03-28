@@ -8,6 +8,7 @@ import {fetchImages} from './thunks/fetchImages'
 import {IVideoImages} from '@interfaces/interfacesVideoImages'
 import {fetchLastMatches} from './thunks/fetchLastMatches'
 import {fetchPlayers} from './thunks/fetchPlayers'
+import {fetchShopItems} from './thunks/fetchShopItems'
 
 //import type {RootState} from '../store/store';
 
@@ -197,6 +198,24 @@ export const playersSlice = createSlice({
     },
 })
 
+export const shopItemsSlice = createSlice({
+    name: 'shopItems',
+    initialState: {
+        shopItems: [],
+    },
+    reducers: {},
+    extraReducers: builder => {
+        builder
+            .addCase(fetchShopItems.pending, (state, action) => {})
+            .addCase(fetchShopItems.fulfilled, (state, action) => {
+                //console.log('fetchArticles.fulfilled')
+                const {payload} = action
+                state.shopItems = payload
+            })
+            .addCase(fetchShopItems.rejected, (state, action) => {})
+    },
+})
+
 export const articlesSlice = createSlice({
     name: 'articles',
     initialState: {
@@ -339,3 +358,4 @@ export const videoReducer = videoSlice.reducer
 export const imagesReducer = imagesSlice.reducer
 export const lastMatchesReducer = lastMatches.reducer
 export const playersReducer = playersSlice.reducer
+export const shopItemsReducer = shopItemsSlice.reducer

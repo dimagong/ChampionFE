@@ -35,22 +35,8 @@ export const StatsScreen = ({navigation}: {navigation: any}) => {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     }
 
-    console.log('StatsScreen==========statistics', statistics)
-    // const teamsStatistics: ITeamStatistics[] = statistics?.map(stat => {
-    //     return {
-    //         team: stat?.team?.name,
-    //         matches: stat?.stats?.matches.played,
-    //         draw: stat?.stats?.matches.draw,
-    //         lost: stat?.stats?.matches.lost,
-    //         won: stat?.stats?.matches.won,
-    //         points: stat?.stats?.points,
-    //         id: stat?.team?._id,
-    //     } as ITeamStatistics
-    // })
-
     return (
         <SafeAreaView style={backgroundStyle}>
-            {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> */}
             <StatusBar barStyle="light-content" backgroundColor="#000000" />
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"

@@ -9,6 +9,7 @@ import {
     imagesReducer,
     lastMatchesReducer,
     playersReducer,
+    shopItemsReducer,
 } from '../store/slices'
 
 export const store = configureStore({
@@ -21,6 +22,7 @@ export const store = configureStore({
         images: imagesReducer,
         lastMatches: lastMatchesReducer,
         players: playersReducer,
+        shopItems: shopItemsReducer,
     },
 })
 export type RootState = ReturnType<typeof store.getState>
